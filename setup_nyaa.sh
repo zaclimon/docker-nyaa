@@ -5,6 +5,7 @@
 # Variables:
 #
 # MYSQL_HOST: Defines the host/server for the database instance. Fallback to SQLite if not defined.
+# MYSQL_DATABASE: Defines the database name used
 # MYSQL_USER: Defines the user having access to the said database.
 # MYSQL_PASS: Defines the MYSQL_USER password to be used.
 # SITE_FLAVOR: Defines the variant of the website. (nyaa or sukebei)
@@ -27,6 +28,10 @@ if [ ! -f .database_created ] ; then
             sed -i "/mysql:\/\/test:test123@localhost\/nyaav2?charset=utf8mb4/ s/test:test123@localhost/test:$MYSQL_PASS@$MYSQL_HOST/g" config.py
         else
             sed -i "/mysql:\/\/test:test123@localhost\/nyaav2?charset=utf8mb4/ s/test:test123@localhost/test:test123@$MYSQL_HOST/g" config.py
+        fi
+
+        if [ -n "$MYSQL_DATABASE" ] ; then
+            sed -i "/?charset=utf8mb4/ s/nyaav2/$MYSQL_DATABASE/g" config.py
         fi
     else
         # Fallback to sqlite even though it is not really recommended...

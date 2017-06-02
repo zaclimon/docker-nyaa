@@ -42,6 +42,9 @@ set using the ```-e``` argument when using ```docker run```.
 ### MYSQL_HOST
 Defines the host/server for an external database instance. There is an fallback to internal SQLite if not defined.
 
+### MYSQL_DATABASE
+Defines the database name used to store the information about the website. Defaults to "nyaav2" if not defined.
+
 ### MYSQL_USER
 Defines the user having access to the said external database. Defaults to "test" if not defined
 

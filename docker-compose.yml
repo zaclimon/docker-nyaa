@@ -13,6 +13,7 @@ services:
       MYSQL_HOST: nyaa-db
       MYSQL_USER: test
       MYSQL_PASS: test123
+      #MYSQL_DATABASE:
       #SITE_FLAVOR:
     depends_on:
       - nyaa-db
