@@ -1,0 +1,29 @@
+#
+# Docker Compose file to set up rapidly an isolated 
+# nyaa.si environment
+#
+version: "3"
+services:
+  nyaa:
+    build: .
+    hostname: nyaa
+    ports:
+    - "5500:5500"
+    environment:
+      MYSQL_HOST: nyaa-db
+      MYSQL_USER: test
+      MYSQL_PASS: test123
+      #SITE_FLAVOR:
+    depends_on:
+      - nyaa-db
+
+  nyaa-db:
+    image: "mariadb:10.0"
+    hostname: nyaa-db
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_DATABASE: nyaav2
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test123
+      MYSQL_ROOT_PASSWORD: test123

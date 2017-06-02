@@ -6,6 +6,7 @@ More info is available here: https://github.com/nyaadevs/nyaa
 ## Prerequisites
 
 - Docker
+- Docker Compose
 
 ## How to build an nyaa image
 1. Download the source:
@@ -23,7 +24,16 @@ It will by default, run itself using an SQLite database.
 You might have an external MySQL/MariaDB database you might want to use. If that's the case, this command might help you a bit more:
 ```docker run -d <docker-image-sha> -e MYSQL_HOST="address-of-database" -e MYSQL_USER="user" -e MYSQL_PASS="pass"```
 
-Note: As per nyaa's recommendation, the database must be named "nyaav2"
+Note: As per nyaa's recommendation, the database should be named "nyaav2"
+
+## Docker Compose instance
+If for some reason, you don't feel like creating a custom image manually, you can use
+Docker Compose to get everything set up in a short amount of time. Only run the following
+command:
+
+``` docker-compose up```
+
+**Note: The default port for nyaa is 5500.**
 
 ## Environment Variables
 Environment variables can be set to further define the behavior of the wanted container. They can be
