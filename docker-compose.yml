@@ -6,7 +6,6 @@ version: "3"
 services:
   nyaa:
     build: .
-    hostname: nyaa
     ports:
     - "5500:5500"
     environment:
@@ -20,7 +19,6 @@ services:
 
   nyaa-db:
     image: "mariadb:10.0"
-    hostname: nyaa-db
     ports:
     - "3306:3306"
     environment:
