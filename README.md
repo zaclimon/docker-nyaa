@@ -1,7 +1,7 @@
 # docker-nyaa
 
 Simple dockerization for nyaa.si
-More info is available here: 
+More info is available here: https://github.com/nyaadevs/nyaa
 
 ## Prerequisites
 
