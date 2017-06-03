@@ -16,6 +16,7 @@ services:
       #SITE_FLAVOR:
     depends_on:
       - nyaa-db
+    entrypoint: ["/root/nyaa/wait-for-it.sh", "nyaa-db:3306", "-s", "-q", "-t", "30", "--", "/root/nyaa/setup_nyaa.sh"]
 
   nyaa-db:
     image: "mariadb:10.0"
